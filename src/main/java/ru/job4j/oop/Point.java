@@ -1,5 +1,7 @@
 package ru.job4j.oop;
 
+import static java.lang.Math.sqrt;
+import static java.lang.Math.pow;
 
 public class Point {
 
@@ -13,7 +15,7 @@ public class Point {
     }
 
     public double distance(Point that) {
-                return (this.x - that.x) + (this.y - that.y);
+        return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));
     }
 
     public static void main(String[] args) {
