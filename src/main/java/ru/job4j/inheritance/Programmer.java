@@ -1,18 +1,19 @@
 package ru.job4j.inheritance;
 
-public class Programmer extends Engineer {
-private String science = "mathematics";
+ public class Programmer extends Engineer {
 
-    public String getScience() {
-        return science;
-    }
+     private String science;
 
-    public static void main(String[] args) {
-        Engineer engineer = new Engineer();
-        String important = engineer.getEducation();
-        Programmer coder = new Programmer();
-        String cod = coder.getScience();
-        int age = engineer.getAge();
-        System.out.println("For a programmer, it is  important to have a" + important + "education and know " + cod + " and be young (minimum " + age + " (at heart)");
-    }
-}
+     public Programmer(String a, String b, String c, int d, int e, String f) {
+         super(a, b, c, d, e);
+         science = f;
+     }
+
+     public static void main(String[] args) {
+         Programmer proger = new Programmer("Alla", "Demidova", "different", 24, 55, "mathematics");
+
+         System.out.println("For a programmer, it is  important to have a " + proger.getEducation() +
+                 " education and know " + proger.science +
+                 " and be young (minimum " + proger.getAge() + " (at heart)");
+     }
+ }
