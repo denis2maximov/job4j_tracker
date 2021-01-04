@@ -37,7 +37,6 @@ public class Tracker {
             Item item = items[index];
             if (item.getName() == key) {
                 rsl = item;
-                break;
             }
         }
         return rsl;
