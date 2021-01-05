@@ -56,9 +56,9 @@ public class Tracker {
             Item item = items[index];
             if (Objects.equals(item.getName(), key)) {
              rsl[x++] = items[index];
-              }
+            }
         }
-        return Arrays.copyOf(rsl, x);
+       return Arrays.copyOf(rsl, x);
     }
 
     public boolean replace(int id, Item item) {
@@ -92,7 +92,8 @@ public class Tracker {
         size--;
         return true;
     }
-}
+  }
+
 
 
 
