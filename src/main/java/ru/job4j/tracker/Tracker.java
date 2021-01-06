@@ -34,21 +34,6 @@ public class Tracker {
         return Arrays.copyOf(items, size);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Tracker tracker = (Tracker) o;
-        return ids == tracker.ids && size == tracker.size && Arrays.equals(items, tracker.items);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(ids, size);
-        result = 31 * result + Arrays.hashCode(items);
-        return result;
-    }
-
     public Item[] findByName(String key) {
         Item[] rsl = new Item[size];
         int x = 0;
@@ -92,7 +77,16 @@ public class Tracker {
         size--;
         return true;
     }
-  }
+
+    @Override
+    public String toString() {
+        return "Tracker{" +
+                "items=" + Arrays.toString(items) +
+                ", ids=" + ids +
+                ", size=" + size +
+                '}';
+    }
+}
 
 
 
