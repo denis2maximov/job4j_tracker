@@ -38,10 +38,7 @@ public class Tracker {
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean rsl = index != -1;
-        if (item.equals(items[index])) {
-            return true;
-        } else {
-            if (rsl) {
+             if (rsl) {
                  {
                     items[index] = item;
                     item.setId(id);
@@ -49,9 +46,8 @@ public class Tracker {
 
             }
 
-        }
         return rsl;
-  }
+    }
 
     private int indexOf(int id) {
         int rsl = -1;
@@ -73,15 +69,6 @@ public class Tracker {
             size--;
         }
         return rsl;
-    }
-
-    @Override
-    public String toString() {
-        return "Tracker{" +
-                "items=" + Arrays.toString(items) +
-                ", ids=" + ids +
-                ", size=" + size +
-                '}';
     }
 }
 
