@@ -39,13 +39,9 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
              if (rsl) {
-                 {
-                    items[index] = item;
+                     items[index] = item;
                     item.setId(id);
                 }
-
-            }
-
         return rsl;
     }
 

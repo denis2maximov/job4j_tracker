@@ -7,6 +7,10 @@ import java.util.Objects;
 
 
 public class Item {
+    public Item(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Item{" +
