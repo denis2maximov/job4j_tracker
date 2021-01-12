@@ -40,7 +40,7 @@ public class Matches {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Вы приглашаетесь сыграть в игру 'Спички'. " + " Введите общее количество спичек участвующих в игре");
+        System.out.println(" Вы приглашаетесь сыграть в игру 'Спички'. " + " Введите общее количество спичек участвующих в игре");
         int select = Integer.valueOf(input.nextLine());
         System.out.println(" Введите  минимальное количество спичек, которое можно забирать  за один ход (обычно это 1)");
         int min = Integer.valueOf(input.nextLine());
@@ -55,30 +55,33 @@ public class Matches {
         do {
             select = Integer.valueOf(input.nextLine());
 
-            if (select <= max && select >= min) {
-                if (select > 0 && select <= model.getMatch()) {
-                    if (model.getMatch() > 0) {
-                        if (select <= max && select >= min) {
+            if (select <= max && select >= min) {  // проверка входящего числа на диапазон играющих чисел
+                if (select > 0 && select <= model.getMatch()) { // проверка на отрицательный остаток и на не  привышение остатка спичек введеному числу
+                    if (model.getMatch() > 0) { // проверка на положительный остаток спичек после предыдущих ходов
+                    //    if (select <= max && select >= min) {
                             int x = model.getMatch() - select;
                             System.out.println("Осталось " + x + " спичек");
                             model.setMatch(x);
-                            if (model.getMatch() <= 0) {
-                                System.out.println("Вы проиграли!");
-                                System.out.println("Конец игры!");
+                            if (model.getMatch() <= 0) {                 // Проверка на положительный остаток спичек после хода, проверка конца игры.
+                                System.out.println("Вы сделали последний ход в этой игре " +
+                                        "(забрали последние спички)!");
+                                System.out.println("Вы проиграли! Конец игры!");
                                 break;
                             }
-                        }
+                       // }
                     }
                 } else {
                     System.out.println("Это число ввести нельзя!");
-                }
+                    }
 
-            } else {
+                } else {
                 System.out.println("Введите правильное число.");
             }
 
-        } while (run) ;
+
+        }  while (run) ;
     }
 }
+
 
 
