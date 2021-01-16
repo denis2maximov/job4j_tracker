@@ -11,4 +11,3 @@ public class Train implements Vehicle{
         System.out.println("The train runs on rails");
     }
 }
-//

@@ -11,4 +11,4 @@ public class Airplane implements Vehicle{
         System.out.println("The plane is flying in the sky");
     }
 }
-//
+

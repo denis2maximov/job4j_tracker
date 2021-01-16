@@ -31,4 +31,3 @@ public class Bus implements Transport, Vehicle {
         return fuelCount;
     }
 }
-//
