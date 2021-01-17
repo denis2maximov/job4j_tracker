@@ -3,67 +3,83 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        tracker.add(item);
+    }
+
+    public static void replaceItem(Input input, Tracker tracker) {
+        System.out.println("===  Edit item ====");
+        int id = input.askInt("Enter Id of the application to change : ");
+        String name = input.askStr("Enter the name of the application for which we are changing : ");
+        Item item = new Item(name);
+        if (tracker.replace( id, item )) {
+            System.out.println("Replacement made!");
+        } else {
+            System.out.println("Something went wrong.. No replacement has been made!");
+        }
+    }
+
+    public static void deteleItem(Input input, Tracker tracker) {
+        System.out.println("===  Delete item ====");
+        int id = input.askInt("Enter Id of the application to delete : ");
+        if (tracker.delete( id )) {
+            System.out.println("This Item has been deleted");
+        } else {
+            System.out.println("Attention! The removal is not done!");
+        }
+    }
+
+    public static void findItemById(Input input, Tracker tracker) {
+        System.out.println("===  Find item by Id ====");
+        int id = input.askInt("Enter the id to search for Item : ");
+        Item item = tracker.findById(id);
+        if (item == null) {
+            System.out.println("The Item with this id was not found");
+        } else {
+            System.out.println(item);
+        }
+    }
+
+    public static void findItemByName(Input input, Tracker tracker) {
+        System.out.println("===  Find item by Name ====");
+        String name=  input.askStr("Enter the Name to search for Item : ");
+        Item[] item = tracker.findByName(name);
+        if (item.length > 0) {
+            for (int i = 0; i < item.length; i++) {
+                System.out.println(item[i]);
+            }
+        } else {
+            System.out.println("The Item with this name was not found");
+        }
+    }
+
+    public static void findAllItem(Input input, Tracker tracker) {
+        Item[] items =  tracker.findAll();
+        for (int i = 0; i < items.length; i++) {
+            System.out.println(items[i]);
+        }
+    }
+
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             this.showMenu();
-            int select = input.askInt("Enter number : ");
+            int select = input.askInt("Select : ");
             if (select == 0) {
-                System.out.println("=== Create a new Item ====");
-             //   System.out.print("Enter name: ");
-                String name =  input.askStr("Enter name: ");
-                Item item = new Item(name);
-                tracker.add(item);
+                StartUI.createItem(input, tracker);
             } else if (select == 1) {
-                 Item[] items =  tracker.findAll();
-                for (int i = 0; i < items.length; i++) {
-                    System.out.println(items[i]);
-                }
+StartUI.findAllItem(input, tracker);
             } else if (select == 2) {
-                System.out.println("===  Edit item ====");
-               // System.out.print("Enter Id of the application to change : ");
-                int id = input.askInt("Enter Id of the application to change : ");
-              //  System.out.print("Enter the name of the application for which we are changing : ");
-                String name = input.askStr("Enter the name of the application for which we are changing : ");
-                Item item = new Item(name);
-                if (tracker.replace( id, item )) {
-               // if (tracker.replace(id, newItem)) {
-                    // вывод об успешности операции
-                    System.out.println("Replacement made!");
-                } else {
-                    System.out.println("Something went wrong.. No replacement has been made!");
-                }
+                 StartUI.replaceItem(input, tracker);
             } else if (select == 3) {
-                System.out.println("===  Delete item ====");
-             //   System.out.print("Enter Id of the application to delete : ");
-                int id = input.askInt("Enter Id of the application to delete : ");
-                if (tracker.delete( id )) {
-                    System.out.println("This Item has been deleted");
-                } else {
-                    System.out.println("Attention! The removal is not done!");
-                }
+                 StartUI.deteleItem(input, tracker);
             } else if (select == 4) {
-                System.out.println("===  Find item by Id ====");
-              //  System.out.print("Enter the id to search for Item : ");
-                int id = input.askInt("Enter the id to search for Item : ");
-                Item item = tracker.findById(id);
-                if (item == null) {
-                    System.out.println("The Item with this id was not found");
-                } else {
-                    System.out.println(item);
-                }
+                  StartUI.findItemById(input, tracker);
             } else if (select == 5) {
-                System.out.println("===  Find item by Name ====");
-           //     System.out.print("Enter the Name to search for Item : ");
-                String name=  input.askStr("Enter the Name to search for Item : ");
-                Item[] item = tracker.findByName(name);
-                if (item.length > 0) {
-                    for (int i = 0; i < item.length; i++) {
-                        System.out.println(item[i]);
-                    }
-                   } else {
-                    System.out.println("The Item with this name was not found");
-                }
+                  StartUI.findItemByName(input, tracker);
             }
             else  if (select == 6) {
                 run = false;
