@@ -12,11 +12,4 @@ public class Fact {
         }
         return rsl;
     }
-
-    public static void main(String[] args) {
-int x = 3;
-        System.out.println(calc(x));
-    }
-
-
 }
