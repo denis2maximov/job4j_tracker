@@ -10,6 +10,4 @@ public class FactTest {
     public void calc() {
         Fact.calc(-10);
     }
-
-
 }
