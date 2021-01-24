@@ -6,22 +6,14 @@ public class FindEl {
         /* for-each */
        for (String x : value) {
            rsl++;
-
-     if (x == null) {
+       if (x == null) {
                        throw new ElementNotFoundException("This value is not in the array");
            }
-     if (key == x) {
+       if (key == x) {
                   return rsl;
                  }
                }
-            for (int i = 0; i < value.length; i++) {
-                if (value[i] == key) {
-
-                  return rsl = i;
-                }
-            }
-
-        return rsl;
+       return rsl;
     }
 
     public static void main(String[] args) throws ElementNotFoundException {
@@ -30,7 +22,7 @@ public class FindEl {
            int string = indexOf(name, "22");
        } catch (ElementNotFoundException e) {
            e.printStackTrace();
-       //  System.out.println("Повторный перехват исключения " + e);
+       // System.out.println("Повторный перехват исключения " + e);
      }
      }
 }
