@@ -10,8 +10,7 @@ public class FindEl {
                  return index;
                     /*  for( int i=0; i<value.length;i++)
            if(value[i]==key) {
-               rsl= i;
-               return rsl;
+               return i;
            } */
             } index++;
         }
