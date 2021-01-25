@@ -7,8 +7,7 @@ public class FindEl {
         int index = 0;
         for (String x : value) {
                 if (value[index].equals(key)) {
-                rsl = index;
-                    return rsl;
+                 return index;
                     /*  for( int i=0; i<value.length;i++)
            if(value[i]==key) {
                rsl= i;
