@@ -6,24 +6,23 @@ public class UserStore {
         User user = new User(login, true);
         for (User one : users) {
             String tow = one.getUsername();
-            if (tow == login) {
+            if (tow.equals(login)) {
                 System.out.println(" User " + user.toString() + " found");
                 return user;
-            } else {
-                throw new UserNotFoundException(" User " + login + " not found!");
             }
+            throw new UserNotFoundException(" User " + login + " not found!");
         }
         return user;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        String x = user.getUsername();
+       String x = user.getUsername();
         boolean y = user.isValid();
-        if (x.length() > 3 && y != false) {
-            return true;
-        } else {
-            throw new UserInvalidException("User " + x + " not valid or the name is less than 3 characters");
+        if ( x.length() < 3 ||  !y) {
+            throw new UserInvalidException("User " + "x" +
+                    " not valid or the name is less than 3 characters");
         }
+    return true;
     }
 
     public static void main(String[] args) throws UserNotFoundException {
@@ -31,11 +30,11 @@ public class UserStore {
                 new User("Petr", true)
         };
        try {
-            User user = findUser(users, "Pe");
+            User user = findUser(users, "Petr");
             if (validate(user)) {
-                System.out.println("This user has an access");
+                System.out.println("This " + user + " has an access");
             }
-            System.out.println(user);
+           // System.out.println(user);
         } catch (UserInvalidException ea) {
             System.out.println("User not validate!");
             ea.printStackTrace();
