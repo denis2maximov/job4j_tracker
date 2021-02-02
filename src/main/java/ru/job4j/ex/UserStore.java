@@ -10,10 +10,10 @@ public class UserStore {
                 System.out.println(" User " + user.toString() + " found");
                 return user;
             }
-            throw new UserNotFoundException(" User " + login + " not found!");
+         //   throw new UserNotFoundException(" User " + login + " not found!");
         }
-        return user;
-    }
+        throw new UserNotFoundException(" User " + login + " not found!");
+            }
 
     public static boolean validate(User user) throws UserInvalidException {
        String x = user.getUsername();
@@ -27,10 +27,10 @@ public class UserStore {
 
     public static void main(String[] args) throws UserNotFoundException {
         User[] users = {
-                new User("Petr", true)
+                new User("Pe", true)
         };
        try {
-          User user = findUser(users, "Petr");
+          User user = findUser(users, "Pe");
         //  User user = new User("Petrd", false);
             if (validate(user)) {
                 System.out.println("This " + user + " has an access");
