@@ -8,12 +8,12 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
 
-/*  public class TrackerTest {
-  @Test
+  public class TrackerTest {
+ @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("test1");
+        Item item = new Item("test1");
+      //  item.setName("test1");
         tracker.add(item);
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
@@ -22,11 +22,11 @@ import static org.hamcrest.core.IsNull.nullValue;
     @Test
     public void whenReplace() {
         Tracker tracker = new Tracker();
-        Item bug = new Item();
-        bug.setName("Bug");
+        Item bug = new Item("bug");
+      //  bug.setName("Bug");
         tracker.add(bug);
         int id = bug.getId();
-        Item bugWithDesc = new Item();
+        Item bugWithDesc = new Item("bug3");
         bugWithDesc.setName("Bug with description");
         tracker.replace(id, bugWithDesc);
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
@@ -35,11 +35,11 @@ import static org.hamcrest.core.IsNull.nullValue;
     @Test
     public void whenDelete() {
         Tracker tracker = new Tracker();
-        Item bug = new Item();
-        bug.setName("Bug");
+        Item bug = new Item("bug");
+       // bug.setName("Bug");
         tracker.add(bug);
         int id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
         }
-} */
+}

@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.nullValue;
@@ -13,9 +19,8 @@ import static org.hamcrest.Matchers.nullValue;
                 new String[]{"8", "0"}
         );
         Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new ExitAction(out)
-        };
+       List<UserAction> actions = new ArrayList();
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 String.format(
@@ -40,7 +45,7 @@ import static org.hamcrest.Matchers.nullValue;
         UserAction[] actions = {
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, tracker, Arrays.asList(actions));
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Exit" + System.lineSeparator()
@@ -61,7 +66,7 @@ import static org.hamcrest.Matchers.nullValue;
                 new FindAllAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, tracker, Arrays.asList(actions));
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                "0. Create" + System.lineSeparator() +
@@ -95,7 +100,7 @@ import static org.hamcrest.Matchers.nullValue;
                 new FindByNameAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, tracker, Arrays.asList(actions));
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Create" + System.lineSeparator() +
@@ -128,7 +133,7 @@ import static org.hamcrest.Matchers.nullValue;
                 new FindByIdAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, tracker, Arrays.asList(actions));
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Create" + System.lineSeparator() +

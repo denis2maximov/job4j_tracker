@@ -22,11 +22,6 @@ public final class Tracker {
         return instance;
     }
 
-    /**
-     * на 07 апреля в процессе изготовления задания. просто копия в гитхаб
-     */
-
-
    /* public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
@@ -55,7 +50,7 @@ public final class Tracker {
         return items;
     }
 
-    public Item[] findByName(String key) {
+  /*  public Item[] findByName(String key) {
         Item[] rsl = new Item[size];
         int x = 0;
         for (int index = 0; index < size; index++) {
@@ -65,10 +60,31 @@ public final class Tracker {
             }
         }
         return Arrays.copyOf(rsl, x);
+    } */
+
+    public List <Item> findByName(String key) {
+        List <Item> rsl = new ArrayList<>();
+            for(Item item1 : items) {
+                if(item1.getName().equals(key)) {
+                    rsl.add(item1);
+              }
+           }
+        return rsl;
     }
 
-    public boolean replace(int id, Item item) {
+   /* public boolean replace(int id, Item item) {
         int index = items.indexOf(id);
+        boolean rsl = index != -1;
+        if (rsl) {
+            items.set(index, item);
+            item.setId(id);
+        }
+        return rsl;
+    } */
+
+    public boolean replace(int id, Item item) {
+       // Item item1 = new Item();
+        int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
             items.set(index, item);
@@ -94,10 +110,7 @@ public final class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            //System.arraycopy(items, index + 1, items, index, (size - index));
             items.remove(index);
-            //items.set(size, null);
-           // size--;
         }
         return rsl;
     }
