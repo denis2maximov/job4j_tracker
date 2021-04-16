@@ -21,10 +21,4 @@ public class UniqueTextTest {
         assertThat(UniqueText.isEquals(origin, text), is(false));
     }
 
-    @Test
-    public void allWordsAndOthers() {
-        String origin = "My cat eats a mouse";
-        String text = "My mouse eats a old cow and cat";
-        assertThat(UniqueText.isEquals(origin, text), is(true));
-    }
 }
