@@ -26,4 +26,13 @@ public class OrderConvertTest {
         HashMap<String, Order> map = OrderConvert.process(orders);
         assertThat(map.get("3sfe"), is(new Order("3sfe", "Dress1")));
     }
+
+    @Test
+    public void whenCheckSizeCollection() {
+        List<Order> orders = new ArrayList<>();
+        orders.add(new Order("3sfe", "Dress"));
+        orders.add(new Order("3sfe", "Dress1"));
+        HashMap<String, Order> map = OrderConvert.process(orders);
+        assertThat(map.size(), is(1));
+    }
 }

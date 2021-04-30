@@ -10,7 +10,6 @@ public class OrderConvert {
             String number = order.getNumber();
             map.put(number, order);
         }
-        System.out.println(map);
         return map;
     }
 }
