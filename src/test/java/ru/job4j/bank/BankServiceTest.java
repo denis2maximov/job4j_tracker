@@ -10,14 +10,12 @@ public class BankServiceTest {
     @Test
     public void addUser() {
         User user = new User("3434", "Petr Arsentev");
-        User user1 = new User("3435", "Denis Maximov");
         BankService bank = new BankService();
         bank.addUser(user);
-        bank.addUser(user1);
-        assertThat(bank.findByPassport("3435"), is(user1));
+        assertThat(bank.findByPassport("3434"), is(user));
     }
 
-  /*   @Test
+    @Test
     public void whenEnterInvalidPassport() {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
@@ -25,23 +23,15 @@ public class BankServiceTest {
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
         assertNull(bank.findByRequisite("34", "5546"));
     }
-   @Test
-    public void whenFindByRegusite() {
-        User user = new User("3434", "Petr Arsentev");
-        BankService bank = new BankService();
-        bank.addUser(user);
-        bank.addAccount(user.getPassport(), new Account("5546", 150D));
-        bank.findByRequisite("3434", "5546"));
-        assertNull(bank.findByRequisite("3434", "5546"));
-    }
+
 
     @Test
     public void addAccount() {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
         bank.addUser(user);
-        bank.addAccount(user.getPassport(), new Account("5546", 150D));
-        assertThat(bank.findByRequisite("3434", "5546").getBalance(), is(150D));
+       bank.addAccount(user.getPassport(), new Account("5546", 150D));
+       assertThat(bank.findByRequisite("3434", "5546").getBalance(), is(150D));
     }
 
     @Test
@@ -53,5 +43,17 @@ public class BankServiceTest {
         bank.addAccount(user.getPassport(), new Account("113", 50D));
         bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 150D);
         assertThat(bank.findByRequisite(user.getPassport(), "113").getBalance(), is(200D));
-    }*/
+    }
+    @Test
+    public void transfer2UserMoney() {
+        User user = new User("3434", "Petr Arsentev");
+        User user1 = new User("34", "Petr! Arsentev!");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addUser(user1);
+        bank.addAccount(user.getPassport(), new Account("5546", 150D));
+        bank.addAccount(user1.getPassport(), new Account("113", 50D));
+        bank.transferMoney(user.getPassport(), "5546", user1.getPassport(), "113", 150D);
+        assertThat(bank.findByRequisite(user1.getPassport(), "113").getBalance(), is(200D));
+    }
 }
