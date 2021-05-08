@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import java.util.*;
 
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 public class ItemComporatorNameTest {
@@ -31,13 +29,7 @@ public class ItemComporatorNameTest {
         items.add(item2);
         items.add(item3);
         Comparator<Item> maxName = new ItemComporatorName();
-        System.out.println("До сортировки items " + items);
-        System.out.println("До сортировки sortItem " + sortItems);
-        //sortItems.addAll(items);
-        //sortItems.sort(maxName);
-        items.sort(maxName);
-        System.out.println("После сортировеи items " + items);
-        //assertThat(items, is(sortItems));
+         items.sort(maxName);
         assertEquals(items, sortItems);
     }
 
@@ -62,13 +54,7 @@ public class ItemComporatorNameTest {
         items.add(item2);
         items.add(item3);
         Comparator<Item> minName = new ItemComporatorName();
-        System.out.println("До сортировки items " + items);
-        System.out.println("До сортировки sortItem " + sortItems);
-        //sortItems.addAll(items);
-        //sortItems.sort(minName);
         items.sort(minName.reversed());
-        System.out.println("После сортировеи items " + items);
-        //assertThat(items, is(sortItems));
         assertEquals(items, sortItems);
     }
 
@@ -80,18 +66,14 @@ public class ItemComporatorNameTest {
         new Item("test4"),
         new Item("test3"));
         Comparator<Item> compName = new ItemComporatorName();
-        System.out.println("До сортировки " + items);
         items.sort(compName);
         boolean sorted = true;
         for (int i = 1; i < items.size(); i++) {
-           // System.out.println(items.get(i).getName());
             if (items.get(i-1).getName().compareTo(items.get(i).getName()) > 0) {
                 sorted = false;
             }
         }
-        System.out.println("После сортировеи " + items);
         assertTrue(sorted);
-       //assertFalse(sorted);
     }
 
     @Test
@@ -102,17 +84,53 @@ public class ItemComporatorNameTest {
         new Item("test4"),
         new Item("test3"));
         Comparator<Item> compName = new ItemComporatorName();
-        System.out.println("До сортировки " + items);
         items.sort(compName.reversed());
         boolean sorted = true;
         for (int i = 1; i < items.size(); i++) {
-           // System.out.println(items.get(i).getName());
             if (items.get(i-1).getName().compareTo(items.get(i).getName()) < 0) {
                 sorted = false;
             }
         }
-        System.out.println("После сортировеи " + items);
         assertTrue(sorted);
-       //assertFalse(sorted);
+    }
+
+    @Test
+    public void whenComparableMaxName() {
+        List <Item> items = Arrays.asList (
+                new Item("test4"),
+                new Item("test1"),
+                new Item("test2"),
+                new Item("test3")
+                );
+
+        List <Item> sortItems = Arrays.asList(
+        new Item("test1"),
+         new Item("test2"),
+        new Item("test3"),
+        new Item("test4")
+        );
+        System.out.println("до сортировки " + items);
+        Collections.sort(items);
+        System.out.println("до сортировки " + items);
+        System.out.println("до сортировки " + sortItems);
+        Collections.sort(sortItems);
+        assertEquals(items, sortItems);
+    }
+
+    @Test
+    public void whenComparableMaxNameSort() {
+        List<Item> items = Arrays.asList(
+                new Item("test1"),
+                new Item("test2"),
+                new Item("test4"),
+                new Item("test3"));
+        Collections.sort(items);
+        boolean sorted = true;
+        for (int i = 1; i < items.size(); i++) {
+            if (items.get(i-1).getName().compareTo(items.get(i).getName()) > 0) {
+                sorted = false;
+            }
+        }
+        assertTrue(sorted);
     }
 }
