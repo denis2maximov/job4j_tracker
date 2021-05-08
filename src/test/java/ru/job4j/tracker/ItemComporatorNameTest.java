@@ -109,10 +109,7 @@ public class ItemComporatorNameTest {
         new Item("test3"),
         new Item("test4")
         );
-        System.out.println("до сортировки " + items);
         Collections.sort(items);
-        System.out.println("до сортировки " + items);
-        System.out.println("до сортировки " + sortItems);
         Collections.sort(sortItems);
         assertEquals(items, sortItems);
     }
