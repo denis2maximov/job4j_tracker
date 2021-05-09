@@ -59,42 +59,6 @@ public class ItemComporatorNameTest {
     }
 
     @Test
-    public void whenComparatorMaxSort() {
-        List<Item> items = Arrays.asList(
-        new Item("test1"),
-        new Item("test2"),
-        new Item("test4"),
-        new Item("test3"));
-        Comparator<Item> compName = new ItemComporatorName();
-        items.sort(compName);
-        boolean sorted = true;
-        for (int i = 1; i < items.size(); i++) {
-            if (items.get(i-1).getName().compareTo(items.get(i).getName()) > 0) {
-                sorted = false;
-            }
-        }
-        assertTrue(sorted);
-    }
-
-    @Test
-    public void whenComparatorMinSort() {
-        List<Item> items = Arrays.asList(
-        new Item("test1"),
-        new Item("test2"),
-        new Item("test4"),
-        new Item("test3"));
-        Comparator<Item> compName = new ItemComporatorName();
-        items.sort(compName.reversed());
-        boolean sorted = true;
-        for (int i = 1; i < items.size(); i++) {
-            if (items.get(i-1).getName().compareTo(items.get(i).getName()) < 0) {
-                sorted = false;
-            }
-        }
-        assertTrue(sorted);
-    }
-
-    @Test
     public void whenComparableMaxName() {
         List <Item> items = Arrays.asList (
                 new Item("test4"),
@@ -114,20 +78,5 @@ public class ItemComporatorNameTest {
         assertEquals(items, sortItems);
     }
 
-    @Test
-    public void whenComparableMaxNameSort() {
-        List<Item> items = Arrays.asList(
-                new Item("test1"),
-                new Item("test2"),
-                new Item("test4"),
-                new Item("test3"));
-        Collections.sort(items);
-        boolean sorted = true;
-        for (int i = 1; i < items.size(); i++) {
-            if (items.get(i-1).getName().compareTo(items.get(i).getName()) > 0) {
-                sorted = false;
-            }
-        }
-        assertTrue(sorted);
-    }
+
 }
