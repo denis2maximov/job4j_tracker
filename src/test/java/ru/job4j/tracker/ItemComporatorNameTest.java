@@ -78,5 +78,24 @@ public class ItemComporatorNameTest {
         assertEquals(items, sortItems);
     }
 
+    @Test
+    public void whenOneListEquallyListTwo() {
+        List <Item> items = Arrays.asList (
+                new Item("test4"),
+                new Item("test1"),
+                new Item("test2"),
+                new Item("test3")
+        );
+
+ List <Item> sortItems = Arrays.asList(
+                new Item("test1"),
+                new Item("test2"),
+                new Item("test3"),
+                new Item("test4")
+        );
+        Collections.sort(items);
+        assertEquals(items, sortItems);
+    }
+
 
 }
