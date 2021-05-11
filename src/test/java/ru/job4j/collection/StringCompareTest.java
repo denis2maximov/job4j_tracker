@@ -35,7 +35,7 @@ public class StringCompareTest {
                 "Petrov",
                 "Ivanova"
         );
-        assertThat(rst, greaterThan(0));
+        assertThat(rst, lessThan(0));
     }
 
     @Test
@@ -45,11 +45,11 @@ public class StringCompareTest {
                 "Petrov",
                 "Patrov"
         );
-        assertThat(rst, greaterThan(0));
+        assertThat(rst, lessThan(0));
     }
 
     @Test
-    public void secondCharOfLeftLessThanRightShouldBeNegative(){
+    public void secondCharOfLefGreatThanRightShouldBePlus(){
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Patrova",
@@ -59,11 +59,11 @@ public class StringCompareTest {
     }
 
     @Test
-    public void secondCharOfLeftLessThanRightShouldBeNegative124(){
+    public void secondCharOfLeftLessThanRightShouldBeNegativeOdin(){
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
-                "123",
-                "124"
+                "2",
+                "1"
         );
         assertThat(rst, lessThan(0));
     }
