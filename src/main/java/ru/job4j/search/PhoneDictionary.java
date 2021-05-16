@@ -19,24 +19,12 @@ public class PhoneDictionary {
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
         for (Person rsl : persons) {
-/*           if (rsl.getPhone().contains(key)) {
-                result.add(rsl);
-            }
-            if (rsl.getSurname().contains(key)) {
-                result.add(rsl);
-            }
-            if (rsl.getAddress().contains(key)) {
-                result.add(rsl);
-            }
-            if (rsl.getName().contains(key)) {
-                result.add(rsl);
-            } */
-            if (rsl.getPhone().contains(key) || rsl.getSurname().contains(key) || rsl.getAddress().contains(key)
-                    ||rsl.getName().contains(key)) {
+            if (rsl.getPhone().contains(key) || rsl.getSurname()
+                    .contains(key) || rsl.getAddress().contains(key)
+                    || rsl.getName().contains(key)) {
                 result.add(rsl);
             }
         }
         return result;
     }
 }
-

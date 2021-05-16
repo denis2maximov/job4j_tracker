@@ -19,7 +19,6 @@ public class Test {
         bus.numberOfPassengers(number);
         train.numberOfPassengers(number);
 
-
       Transport bus1 = new Bus();
        bus1.drive();
      bus1.passengers(12);

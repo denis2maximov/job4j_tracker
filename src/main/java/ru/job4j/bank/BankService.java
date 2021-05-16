@@ -4,9 +4,8 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<User, List<Account>>();
 
     public void addUser(User user) {
-        users.putIfAbsent(user, new ArrayList<Account>());
+        users.putIfAbsent(user, new ArrayList<>());
     }
-
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
@@ -17,7 +16,6 @@ public class BankService {
             }
         }
     }
-
 
     public User findByPassport(String passport) {
         User values = null;

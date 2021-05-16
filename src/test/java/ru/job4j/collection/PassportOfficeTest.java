@@ -29,7 +29,6 @@ public class PassportOfficeTest {
         assertThat(office.add(new Citizen("2f44a", "Petr")), is(false));
     }
 
-    // проверяем работу метода get, добавляем гражданина, получаем его же по паспорту через get
     @Test
     public void WhenGetPassport() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
@@ -38,8 +37,6 @@ public class PassportOfficeTest {
         assertThat(office.get("2f44a"), is(citizen));
     }
 
-    // проверяем работу метода get, пытаемся получить гражданина по несуществующему паспорту.
-    // Приходит null
     @Test
     public void WhenNotGetPassport() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
@@ -48,8 +45,6 @@ public class PassportOfficeTest {
         assertThat(office.get("2f44a1"), is(nullValue()));
     }
 
-    // проверяем работу add , добавляем двух граждан с одинаковым паспортом, получаем
-    //  отказ в добавлении второго
     @Test
     public void WhenNoDuplicateAdded() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");

@@ -9,7 +9,6 @@ package ru.job4j.inheritance;
          cash = f;
      }
 
-
    public static void main(String[] args) {
        Dentist zub  = new Dentist("Олег", "Зубастов", "Самое лучшее!", 18, 120, 5);
 

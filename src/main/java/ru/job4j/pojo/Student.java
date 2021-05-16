@@ -5,7 +5,6 @@ public class Student {
     private String group;
     private String data;
 
-
     public String getFullName() {
         return fullName;
     }

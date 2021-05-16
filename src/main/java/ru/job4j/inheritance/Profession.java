@@ -12,14 +12,13 @@ public class Profession {
     private int age;
     private int weight;
 
-     Profession(String a, String b, String c, int d, int e){
+     Profession(String a, String b, String c, int d, int e) {
          name = a;
          surname = b;
          education = c;
          age = d;
          weight = e;
         }
-
 
     public String getName() {
         return name;

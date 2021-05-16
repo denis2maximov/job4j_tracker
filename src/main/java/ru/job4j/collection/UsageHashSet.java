@@ -11,7 +11,7 @@ public class UsageHashSet {
             autos.add("Volvo");
             autos.add("Audi");
             autos.add("Toyota");
-            for (String string : autos  ) {
+            for (String string : autos) {
                 System.out.println(string);
             }
         }

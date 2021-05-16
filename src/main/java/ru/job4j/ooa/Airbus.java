@@ -40,8 +40,12 @@ public final class Airbus extends Aircraft {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Airbus airbus = (Airbus) o;
         return Objects.equals(name, airbus.name);
     }

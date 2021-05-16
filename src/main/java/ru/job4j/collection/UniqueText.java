@@ -17,7 +17,6 @@ public class UniqueText {
                 return false;
             }
         }
-
-    return rsl;}
+    return rsl;
+    }
 }
-//

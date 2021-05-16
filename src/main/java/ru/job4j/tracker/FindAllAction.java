@@ -8,6 +8,7 @@ public class FindAllAction implements  UserAction {
     public FindAllAction(Output out) {
         this.out = out;
     }
+
     @Override
     public String name() {
         return "Find all item";
@@ -16,7 +17,6 @@ public class FindAllAction implements  UserAction {
     @Override
     public  boolean execute(Input input, Tracker tracker) {
         out.println("===  Find all item ====");
-        // Item[] items = tracker.findAll();
         List<Item> items = tracker.findAll();
         for (int i = 0; i < items.size(); i++) {
             out.println(items.get(i));

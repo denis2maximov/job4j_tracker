@@ -18,9 +18,9 @@ public class UserStore {
     public static boolean validate(User user) throws UserInvalidException {
        String x = user.getUsername();
         boolean y = user.isValid();
-        if ( x.length() < 3  ||  !y ) {
-            throw new UserInvalidException("User " + x +
-                    " not valid or the name is less than 3 characters");
+        if (x.length() < 3  ||  !y) {
+            throw new UserInvalidException(new StringBuilder().append("User ").append(x).append(
+                    " not valid or the name is less than 3 characters").toString());
         }
     return true;
     }
@@ -31,11 +31,9 @@ public class UserStore {
         };
        try {
           User user = findUser(users, "Pe");
-        //  User user = new User("Petrd", false);
             if (validate(user)) {
                 System.out.println("This " + user + " has an access");
             }
-           // System.out.println(user);
         } catch (UserInvalidException ea) {
             System.out.println("User not validate!");
             ea.printStackTrace();

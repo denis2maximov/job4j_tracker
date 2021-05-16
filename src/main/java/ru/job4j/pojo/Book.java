@@ -7,9 +7,7 @@ public class Book {
     public Book(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
-
     }
-
 
     public String getName() {
         return name;
