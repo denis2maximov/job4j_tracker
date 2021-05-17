@@ -82,13 +82,12 @@ public class JobTest {
 
     @Test
     public void whenCompatorByDescPriorityAscName() {
-        Comparator<Job> cmpNamePriority = new JobDescByPriority().thenComparing(new JobCompNameAscending());
+        Comparator<Job> cmpNamePriority = new JobDescByPriority()
+                .thenComparing(new JobCompNameAscending());
         int rsl = cmpNamePriority.compare(
                 new Job("ComputerPC", 1),
                 new Job("Fix bug", 1)
         );
         assertThat(rsl, lessThan(0));
     }
-
-
 }

@@ -30,7 +30,7 @@ public class PassportOfficeTest {
     }
 
     @Test
-    public void WhenGetPassport() {
+    public void whenGetPassport() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         PassportOffice office = new PassportOffice();
         office.add(citizen);
@@ -38,7 +38,7 @@ public class PassportOfficeTest {
     }
 
     @Test
-    public void WhenNotGetPassport() {
+    public void whenNotGetPassport() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         PassportOffice office = new PassportOffice();
         office.add(citizen);
@@ -46,7 +46,7 @@ public class PassportOfficeTest {
     }
 
     @Test
-    public void WhenNoDuplicateAdded() {
+    public void whenNoDuplicateAdded() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         Citizen citizen2 = new Citizen("2f44a", "Petr Arsentev");
         PassportOffice office = new PassportOffice();

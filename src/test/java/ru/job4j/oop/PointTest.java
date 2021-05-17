@@ -14,10 +14,11 @@ import org.junit.Test;
       Assert.assertEquals(expected, out, 0.01);
 
   }
+
         @Test
         public void whenPoint3toPoint3then33() {
             Point a = new Point(1, 2, 2);
-            Point b = new Point(7, 14,2);
+            Point b = new Point(7, 14, 2);
             double out3d = a.distance3d(b);
             double expected = 13.42;
             Assert.assertEquals(expected, out3d, 0.01);

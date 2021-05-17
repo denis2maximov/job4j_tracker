@@ -10,8 +10,8 @@ public class ItemComporatorNameTest {
 
     @Test
     public void whenComparatorMaxName() {
-       List <Item> items = new ArrayList<Item>();
-       List <Item> sortItems= new ArrayList<Item>();
+       List<Item> items = new ArrayList<Item>();
+       List<Item> sortItems = new ArrayList<Item>();
         Item item = new Item("test1");
         Item item3 = new Item("test2");
         Item item2 = new Item("test3");
@@ -35,8 +35,8 @@ public class ItemComporatorNameTest {
 
     @Test
     public void whenComparatorMinName() {
-        List <Item> items = new ArrayList<Item>();
-        List <Item> sortItems= new ArrayList<Item>();
+        List<Item> items = new ArrayList<Item>();
+        List<Item> sortItems = new ArrayList<Item>();
         Item item = new Item("test1");
         Item item3 = new Item("test2");
         Item item2 = new Item("test3");
@@ -60,14 +60,14 @@ public class ItemComporatorNameTest {
 
     @Test
     public void whenComparableMaxName() {
-        List <Item> items = Arrays.asList (
+        List<Item> items = Arrays.asList(
                 new Item("test4"),
                 new Item("test1"),
                 new Item("test2"),
                 new Item("test3")
                 );
 
-        List <Item> sortItems = Arrays.asList(
+        List<Item> sortItems = Arrays.asList(
         new Item("test1"),
          new Item("test2"),
         new Item("test3"),
@@ -80,14 +80,14 @@ public class ItemComporatorNameTest {
 
     @Test
     public void whenOneListEquallyListTwo() {
-        List <Item> items = Arrays.asList (
+        List<Item> items = Arrays.asList(
                 new Item("test4"),
                 new Item("test1"),
                 new Item("test2"),
                 new Item("test3")
         );
 
- List <Item> sortItems = Arrays.asList(
+       List<Item> sortItems = Arrays.asList(
                 new Item("test1"),
                 new Item("test2"),
                 new Item("test3"),
@@ -96,6 +96,4 @@ public class ItemComporatorNameTest {
         Collections.sort(items);
         assertEquals(items, sortItems);
     }
-
-
 }

@@ -27,9 +27,10 @@ public class PhoneDictionaryTest {
         );
         ArrayList<Person> prs = phones.find("422");
        // assertThat(prs.get(0).getSurname(), is("SuperStar"));
-        prs.forEach((num)-> System.out.println(num));
+        prs.forEach((num) -> System.out.println(num));
         assertThat(prs.get(1).getSurname(), is("HromMolibden"));
     }
+
     @Test
     public void whenFindByNameNull() {
         PhoneDictionary phones = new PhoneDictionary();
@@ -38,7 +39,5 @@ public class PhoneDictionaryTest {
         );
         ArrayList<Person> prs = phones.find("Ololoshka");
         assertTrue(prs.isEmpty());
-
-
     }
 }
