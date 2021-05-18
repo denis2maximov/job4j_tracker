@@ -27,8 +27,7 @@ public class ConvertList2Array {
             for (int cell : row) {
                 System.out.print(cell + " ");
             }
-            System.out.println();
-        }
+       }
     }
 }
 
