@@ -6,7 +6,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class ArticleTest {
-
     @Test
     public void whenLineGnrTrue() {
         assertThat(

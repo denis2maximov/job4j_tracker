@@ -16,3 +16,4 @@ public class Article {
         return h.containsAll(x);
     }
  }
+
