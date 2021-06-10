@@ -18,7 +18,6 @@ public class FreezeStr {
             } else {
                 map.put(c, count + 1);
             }
-            System.out.println(map);
         }
       /*  for (Character c : right.toCharArray()) {
             if (!map.containsKey(c)) {

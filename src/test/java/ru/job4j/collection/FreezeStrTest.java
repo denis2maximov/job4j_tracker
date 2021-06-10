@@ -27,3 +27,4 @@ public class FreezeStrTest {
         assertThat(FreezeStr.eq("olhle", "hello"), is(true));
     }
 }
+//
