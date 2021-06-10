@@ -21,4 +21,9 @@ public class FreezeStrTest {
     public void whenNotMultiEq() {
         assertThat(FreezeStr.eq("heloo", "hello"), is(false));
     }
+
+    @Test
+    public void whenNotMultiEq1() {
+        assertThat(FreezeStr.eq("olhle", "hello"), is(true));
+    }
 }
