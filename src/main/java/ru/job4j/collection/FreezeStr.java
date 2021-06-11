@@ -23,7 +23,7 @@ public class FreezeStr {
             } else if (map.get(c) == count) {
                 map.remove(c);
                 } else {
-                map.put(c, count - 1 );
+                map.put(c, count - 1);
                 if (!(map.size() <= 0)) {
                     return true;
                 }
