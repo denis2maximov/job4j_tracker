@@ -10,11 +10,11 @@ public class Departments {
         String start = "";
         for (String out : deps) {
             for (String value : out.split("/")) {
-             if (tmp.size() < 1 && start != value) {
+             if (tmp.size() < 1 && !start.equals(value)) {
                     tmp.add(value);
                     start = value;
                 }
-                 if (start != value) {
+                 if (!start.equals(value)) {
                      tmp.add(value);
                  }
             }
@@ -22,7 +22,7 @@ public class Departments {
 
             Iterator<String> i = tmp.iterator();
             String string = null;
-            String string2 = null;
+            String string2;
             while (i.hasNext()) {
                 rsl.add(start);
                 if (tmp.size() > 1) {
@@ -36,7 +36,6 @@ public class Departments {
             }
             return new ArrayList<>(rsl);
         }
-
 
     public static void sortAsc(List<String> orgs) {
         List<String> values = new ArrayList<>();
