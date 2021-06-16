@@ -26,4 +26,14 @@ public class DepDescCompTest {
         assertThat(rsl, lessThan(0));
     }
 
+
+    @Test
+    public void compare1() {
+        int rsl = new DepDescComp().compare(
+                "K2/SK1/SSK1",
+                "K2/SK1/SSK2"
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
 }
