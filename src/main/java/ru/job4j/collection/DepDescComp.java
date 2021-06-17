@@ -1,34 +1,29 @@
 package ru.job4j.collection;
 import java.util.*;
+
 public class DepDescComp implements Comparator<String> {
     @Override
     public int compare(String o1, String o2) {
-        List<String> outOne = new ArrayList<String>();
-        List<String> outTwo = new ArrayList<String>();
-        int rsl = 0;
-        if (o1.length() < o2.length()) {
-            return -1;
+        int rsl = 12;
+         String[] o12 = o1.split("/");
+         String[] o21 = o2.split("/");
+         if (o12.length > o21.length) {
+             rsl = 1;
+         } else {
+             rsl = -1;
         }
-        for (String string : o1.split("/")) {
-            outOne.add(string);
-        }
-  /*      for (String string : o2.split("/")) {
-            outTwo.add(string);
-        }
-        System.out.println(outTwo);
-         rsl = outOne.get(1).compareTo(outTwo.get(1));
-        if (rsl == 0) {
-            return o1.compareTo(o2);
-        } */
-        for (String string : o2.split("/")) {
-            // outTwo.add(string);
-
-            System.out.println(string);
-            rsl = outOne.get(1).compareTo(string);
-            if (rsl == 0) {
-                return o1.compareTo(o2);
+        for (int i = 0; i < o12.length - 1; i++) {
+            if (i == 0) {
+                rsl =   o12[i].compareTo(o21[i]);
+                if (rsl > 0) {
+                    return -1;
+                }  else  if (rsl < 0) {
+                    return 1;
+                } else {
+                    rsl = o1.compareTo(o2);
+                }
             }
-       }
+        }
         return rsl;
-    }
+        }
 }
