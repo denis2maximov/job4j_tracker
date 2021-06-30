@@ -9,10 +9,6 @@ import static org.junit.Assert.assertTrue;
 
 public class PhoneDictionaryTest {
 
-  /*  @Test
-    public void add() {
-    }*/
-
     @Test
     public void whenFindByName() {
         PhoneDictionary phones = new PhoneDictionary();
@@ -26,8 +22,6 @@ public class PhoneDictionaryTest {
                 new Person("Denis", "HromMolibden", "127422", "Voroneg")
         );
         ArrayList<Person> prs = phones.find("422");
-       // assertThat(prs.get(0).getSurname(), is("SuperStar"));
-        prs.forEach((num) -> System.out.println(num));
         assertThat(prs.get(1).getSurname(), is("HromMolibden"));
     }
 
@@ -39,5 +33,15 @@ public class PhoneDictionaryTest {
         );
         ArrayList<Person> prs = phones.find("Ololoshka");
         assertTrue(prs.isEmpty());
+    }
+
+    @Test
+    public void whenFindByNameTwo() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        ArrayList<Person> persons = phones.find("Petr");
+        assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 }
