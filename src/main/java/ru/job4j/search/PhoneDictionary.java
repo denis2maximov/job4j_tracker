@@ -22,8 +22,11 @@ public ArrayList<Person> find(String key) {
     Predicate<Person> surname = s -> s.getSurname().contains(key);
     Predicate<Person> address = s -> s.getAddress().contains(key);
     Predicate<Person> phone = s -> s.getPhone().contains(key);
+    Predicate<Person> combine  = s -> name.or(surname).or(address).or(phone).test(s);
+
       for (Person person : persons) {
-        if (name.or(surname).or(address).or(phone).test(person)) {
+        /*if (name.or(surname).or(address).or(phone).test(person)) {*/
+        if (combine.test(person)) {
             result.add(person);
         }
     }
