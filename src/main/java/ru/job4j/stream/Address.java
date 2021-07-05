@@ -43,16 +43,9 @@ public class Address {
             return false;
         }
         Address address = (Address) o;
-        if (home != address.home) {
-            return false;
-        }
-        if (apartment != address.apartment) {
-            return false;
-        }
-        if (city != null ? !city.equals(address.city) : address.city != null) {
-            return false;
-        }
-        return street != null ? street.equals(address.street) : address.street == null;
+        return home == address.home && apartment == address.apartment
+                && Objects.equals(city, address.city)
+                && Objects.equals(street, address.street);
     }
 
     @Override
