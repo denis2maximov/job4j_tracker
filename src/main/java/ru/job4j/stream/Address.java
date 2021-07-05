@@ -36,18 +36,23 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        if (this != o) {
-            if (o != null && getClass() == o.getClass()) {
-                Address address = (Address) o;
-                return home == address.home && apartment == address.apartment
-                        && Objects.equals(city, address.city)
-                        && Objects.equals(street, address.street);
-            } else {
-                return false;
-            }
-        } else {
+        if (this == o) {
             return true;
         }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Address address = (Address) o;
+        if (home != address.home) {
+            return false;
+        }
+        if (apartment != address.apartment) {
+            return false;
+        }
+        if (city != null ? !city.equals(address.city) : address.city != null) {
+            return false;
+        }
+        return street != null ? street.equals(address.street) : address.street == null;
     }
 
     @Override
