@@ -34,7 +34,7 @@ public class Address {
         return apartment;
     }
 
-    @Override
+      @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -48,7 +48,7 @@ public class Address {
                 && Objects.equals(street, address.street);
     }
 
-    @Override
+   @Override
     public int hashCode() {
         return Objects.hash(city, street, home, apartment);
     }
