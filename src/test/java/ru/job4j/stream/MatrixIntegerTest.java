@@ -13,10 +13,8 @@ public class MatrixIntegerTest {
 
     @Test
     public void matrixInt() {
-       List<List<Integer>> matrix = List.of(
-                List.of(1, 2),
-                List.of(3, 4)
-        );
+
+        Integer[][] matrix = {{1, 2}, {3, 4}};
 
         List<Integer> rsl = new ArrayList<Integer>();
             rsl.add(1);
@@ -24,6 +22,7 @@ public class MatrixIntegerTest {
             rsl.add(3);
             rsl.add(4);
         MatrixInteger mi = new MatrixInteger();
+        mi.matrixInt(matrix);
         assertThat(rsl, is(mi.matrixInt(matrix)));
     }
 }
