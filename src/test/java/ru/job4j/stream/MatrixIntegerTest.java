@@ -22,7 +22,7 @@ public class MatrixIntegerTest {
             rsl.add(3);
             rsl.add(4);
         MatrixInteger mi = new MatrixInteger();
-        mi.matrixInt(matrix);
+      //  mi.matrixInt(matrix);
         assertThat(rsl, is(mi.matrixInt(matrix)));
     }
 }
