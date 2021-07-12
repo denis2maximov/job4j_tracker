@@ -54,18 +54,17 @@ public class BankService {
      * @param passport - строковый параметр паспорт {@link User}.
      * @return User - объект юзер {@link User}
      */
-    public User findByPassport(String passport) {
-        User values = null;
-        for (User exit : users.keySet()) {
-            if (exit.getPassport().equals(passport)) {
-                values = exit;
-                break;
-            }
-        }
-        return values;
+
+     public User findByPassport(String passport) {
+        return users.keySet()
+                .stream()
+                .filter(s -> s.getPassport().equals(passport))
+                 .findFirst()
+                .orElse(null);
     }
 
     /**
+     *
      * Метод ищет по реквизитам счет пользователя.
      * На вход принимает паспорт.
      * Сначали ищет пользователя по паспорту, потом (если находит)
@@ -76,19 +75,18 @@ public class BankService {
      * @return Account  {@link Account} - счет пользователя
      */
 
-    public Account findByRequisite(String passport, String requisite) {
-        Account value = null;
-        User user = findByPassport(passport);
-        if (user != null) {
-            for (Account account : users.get(user)) {
-                if (account.getRequisite().equals(requisite)) {
-                    value = account;
-                    break;
-                }
-            }
-        }
-        return value;
-    }
+       public Account findByRequisite(String passport, String requisite) {
+           User user = findByPassport(passport);
+           if (user != null) {
+               return users.get(user)
+                       .stream()
+                     //  .filter(Objects::nonNull)
+                       .filter(s -> s.getRequisite().equals(requisite))
+                       .findFirst()
+                       .orElse(null);
+           }
+           return null;
+       }
 
     /**
      * Метод осуществляет перевод с одного счета на другой.
