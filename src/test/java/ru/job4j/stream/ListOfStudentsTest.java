@@ -25,10 +25,11 @@ public class ListOfStudentsTest {
         Map<String, Student> rsl = sc.collect(students);
         Map<String, Student> expected = new HashMap<String, Student>();
         expected.put("Surname2", new Student(20, "Surname2"));
-        expected.put("Surname3",new Student(30, "Surname3"));
-        expected.put("Surname5",new Student(50, "Surname5"));
-        expected.put("Surname6",new Student(60, "Surname6"));
-        expected.put("Surname8",new Student(80, "Surname8"));
+        expected.put("Surname3", new Student(30, "Surname3"));
+        expected.put("Surname5", new Student(50, "Surname5"));
+        expected.put("Surname6", new Student(60, "Surname6"));
+        expected.put("Surname8", new Student(80, "Surname8"));
+        System.out.println(expected);
         assertThat(rsl, is(expected));
     }
 }
