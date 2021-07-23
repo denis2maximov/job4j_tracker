@@ -1,6 +1,7 @@
 package ru.job4j.map;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class Student {
     private String name;
@@ -15,11 +16,7 @@ public class Student {
         this.group = group;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+      public void setName(String name) {
         this.name = name;
     }
 
